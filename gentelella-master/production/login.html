@@ -39,18 +39,18 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
 			  <div>
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                        <label  id = "userType" class="control-label col-md-3 col-sm-3 col-xs-12">User Type</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
-                            </label>
+                          <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="female"> Female
+                              <input type="radio" name="usertype" value="traveller"> &nbsp; Traveller &nbsp;
+                            </label>
+                            <label  id ="separatepromoter" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="usertype" value="promoter"> Promoter
                             </label>
                           </div>
                         </div>
-                      </div>
+              </div>
               <div style="padding-top:100px;position:relative">
                 <a class="btn btn-default submit" id="login" href="index.html">Log in</a>
               </div>
