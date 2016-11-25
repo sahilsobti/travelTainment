@@ -128,12 +128,38 @@
 }
 #lostPass {
     position: relative;
-    top: -35px;
+    top: -71px;
     left: -87px;
 }
 #login {
     position: relative;
-    top: -34px;
+    top: -73px;
+}
+#dateOfBirthTag{
+	    position: relative;
+    top: 209px;
+    left: -119px;
+    width: 110px;
+}
+#birthday{
+	    position: relative;
+    width: 349px;
+    left: -9px;
+}
+#userType{
+	position: relative;
+    left: -212px;
+    top: 276px;
+}
+#traveller{
+	    position: relative;
+    left: -160px;
+    top: 73px;
+}
+#promoter{
+	    position: relative;
+    left: -77px;
+    top: 73px;
 }
 .left_col {
     background: #2A3F54
@@ -1998,10 +2024,6 @@ a.star {
 	position: relative;
     right: -98px;
     top: -34px;
-}
-#userType{
-	position: relative;
-    top: 9px;
 }
 }
 button,
