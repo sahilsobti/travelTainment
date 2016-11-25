@@ -136,8 +136,8 @@
     top: -73px;
 }
 #dateOfBirthTag{
-	    position: relative;
-    top: 209px;
+	position: relative;
+    top:141px;
     left: -119px;
     width: 110px;
 }
@@ -149,7 +149,7 @@
 #userType{
 	position: relative;
     left: -212px;
-    top: 276px;
+    top:207px;
 }
 #traveller{
 	    position: relative;

@@ -23,6 +23,22 @@
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
+  <script>
+   function logIn(){
+        var email = $("#emailid").val();
+		if(email == "traveller@gmail.com")
+		{
+				 window.open("travellerHome.html","_self");
+		}
+		else if(email == "promoter@gmail.com"){
+				window.open("promoterHome.html","_self");
+		}
+		else{
+			alert("Wrong credentials")
+		}
+   }
+   
+  </script>
 
   <body class="login">
     <div>
@@ -35,13 +51,13 @@
             <form>
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Email id" required="" />
+                <input type="text" id ="emailid" class="form-control" placeholder="Email id" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" id="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div style="padding-top:100px;position:relative">
-                <a class="btn btn-default submit" id="login" href="index.html">Log in</a>
+                <a class="btn btn-default submit" id="login" onclick="logIn()">Log in</a>
               </div>
 			  <div>
 			   <a class="reset_pass" id="lostPass" href="#">Lost your password?</a>
@@ -64,15 +80,15 @@
             </form>
           </section>
         </div>
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" id="dateOfBirthTag" >Date Of Birth <span class="required">*</span>
-                        </label>
-		 <label class="control-label col-md-3 col-sm-3 col-xs-12" id="userType" >User Type<span class="required">*</span>
-                        </label>				
+       				
         <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
               <h1>Create Account</h1>
-              
+               <label class="control-label col-md-3 col-sm-3 col-xs-12" id="dateOfBirthTag" >Date Of Birth <span class="required">*</span>
+                        </label>
+		 <label class="control-label col-md-3 col-sm-3 col-xs-12" id="userType" >User Type<span class="required">*</span>
+                        </label>
               <div>
                 <input type="email" class="form-control" placeholder="Email" required="" />
               </div>
@@ -97,14 +113,14 @@
 			 </div>
 			 
               <div  style="position:relative; top:50px; ">
-                <a  class="btn btn-default submit "  href="index.html">Submit</a>
+                <a  class="btn btn-default submit "  href="login.html">Submit</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator" style="position:relative; top:120px; ">
                 <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
+                  <a href="login.html" class="to_register"> Log in </a>
                 </p>
 
                 <div class="clearfix"></div>
