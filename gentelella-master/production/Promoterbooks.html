@@ -32,59 +32,35 @@
 
 
 <script>
-var tag = document.createElement('script');
-tag.src = "http://www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-/* video settings come here */
-var player;
-function onYouTubePlayerAPIReady() {
-player = new YT.Player('player', {
-height: '350',
-width: '600',
-videoId: 'Sne_5PwcAss',
-events: {
-'onReady': onPlayerReady
-}
-});
-}
-/* Autoplay when the dialog opens */
-function onPlayerReady(event) {
-event.target.playVideo(1);
-}
-$(document).ready(function(){
-var overlay = jQuery('<div id="overlay"></div>');
-$('.close').click(function(){
-$('.popup').hide();
-overlay.appendTo(document.body).remove();
-return false;
-});
-
-$('.x').click(function(){
-$('.popup').hide();
-overlay.appendTo(document.body).remove();
-return false;
-});
-
-$('.click').click(function(){
-player.stopVideo();
-overlay.show();
-
-overlay.appendTo(document.body);
-$('.popup').show();
-return false;
-});
+<script>
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+		alert(targeted_popup_class);
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
 });
 </script>
   </head>
   <body class="nav-md">
-<div class='popup'>
-<div class='content'>
-<img id ="cross" src='../production/images/close.jpg' alt='quit' class='x' id='x' />
-<div id='player'></div>
-</div>
-</div>   
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        
+        <p><a data-popup-close="popup-1" href="#">Close</a></p>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>  
 
     <div class="container body">
       <div class="main_container">
@@ -116,15 +92,15 @@ return false;
               <div class="menu_section">
                 
                 <ul class="nav side-menu">
-                 
+                 <li><a href = "promoterHome.html"><i class="fa fa-signal"></i> Report</a>
                   <li><a><i class="fa fa-globe"></i> Advertisement <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Resaturants</a></li>
+                      <li><a href="restaurant.html">Restaurants</a></li>
                       <li><a href="#">Apparel</a></li>
                       <li><a href="#">Books</a></li>
                     </ul>
                   </li>
-                  <li><a href="videos.html"><i class="fa fa-film"></i> Videos</a>
+                  <li><a href ="promoterVideos.html"><i class="fa fa-film"></i> Videos</a>
                     <ul class="nav child_menu">
                       
                     </ul>
@@ -134,7 +110,7 @@ return false;
                       
                     </ul>
                   </li>
-				   <li><a href ="#"><i class="fa fa-book"></i> Books</a>
+				   <li><a href ="promoterBooks.html"><i class="fa fa-book"></i> Books</a>
                     <ul class="nav child_menu">
                       
                     </ul>
@@ -183,6 +159,28 @@ return false;
               </div>
 
               <ul class="nav navbar-nav navbar-right">
+			  <li class="">
+
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                   <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                            <span class="glyphicon-class">Upload</span>
+                     <!--  i class="fa fa-envelope-o"></i>Upload
+                    <span class=" fa fa-angle-down"></span-->
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                   <li><a href= "../uploads/upload_song.html" >Songs</a></li>
+
+                    <li>
+                         <li><a href= "../uploads/upload_video.html" >Videos</a></li>
+
+                      </a>
+                    </li>
+                            <li><a href= "../uploads/upload_books.html" >Books</a></li>
+                    <li><a href= "../uploads/upload_articles.html" >Articles</a></li>
+                     <li><a href= "../uploads/upload_adver.html" >Advertisements</a></li>
+                      <li><a href= "../uploads/upload_others.html" >Others</a></li>
+                  </ul>
+                </li>
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt="">John Doe
@@ -321,21 +319,21 @@ return false;
                    <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-						  <a href='' class='click'>
-						  <img style="width: 100%; display: block;" src="images/video1.jpg" alt="image" />
+						  <a class="btn" data-popup-open="popup-1" href="#">
+						  <img style="width: 100%; display: block;" src="images/book1.jpg" alt="image" />
 						  </a>
                           </div>
                           <div class="caption">
-                            <p><strong>My Step up dance video</strong></p>
+                            <p><strong>Just Courage</strong></p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video2.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book2.jpg" alt="image" />
                             <div class="mask">
-                              <p>Thrift shop guitar cover</p>
+                              <p></p>
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
                                 <a href="#"><i class="fa fa-pencil"></i></a>
@@ -344,14 +342,14 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Thrift shop guitar cover</strong></p>
+                            <p><strong>Dreaming of Sweden</strong></p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video3.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book3.jpg" alt="image" />
                             <div class="mask">
                               <p>Sarkar Acting</p>
                               <div class="tools tools-bottom">
@@ -362,16 +360,16 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Sarkar Acting</strong></p>
+                            <p><strong>Pride & Prejudice</strong></p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video4.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book4.jpg" alt="image" />
                             <div class="mask">
-                              <p>Eye drawing</p>
+                              <p>Stone</p>
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
                                 <a href="#"><i class="fa fa-pencil"></i></a>
@@ -380,16 +378,16 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Eye drawing</strong></p>
+                            <p><strong>Stone</strong></p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video5.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book5.jpg" alt="image" />
                             <div class="mask">
-                              <p>Intense eye drawing</p>
+                              <p>The Book Thief</p>
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
                                 <a href="#"><i class="fa fa-pencil"></i></a>
@@ -398,7 +396,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Intense eye drawing<strong></p>
+                            <p><strong>The Book Thief<strong></p>
                           </div>
                         </div>
                       </div>
@@ -407,7 +405,7 @@ return false;
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video6.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book6.jpg" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -417,7 +415,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Mitwa band cover</strong>
+                            <p><strong>IntelligentSi Proov</strong>
                             </p>
                             <p></p>
                           </div>
@@ -426,7 +424,7 @@ return false;
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video7.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book7.jpg" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -436,7 +434,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Magic for adults</strong>
+                            <p><strong>Will you</strong>
                             </p>
                  
                           </div>
@@ -445,7 +443,7 @@ return false;
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video8.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book8.jpg" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -455,7 +453,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Breakup song cover</strong>
+                            <p><strong>The catcher in the Rye</strong>
                             </p>
                            
                           </div>
@@ -464,7 +462,7 @@ return false;
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video9.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book9.jpg" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -474,7 +472,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Random skill cover</strong>
+                            <p><strong>Lemons are not Red</strong>
                             </p>
                           </div>
                         </div>
@@ -482,7 +480,7 @@ return false;
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/video10.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="images/book10.jpg" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -492,7 +490,7 @@ return false;
                             </div>
                           </div>
                           <div class="caption">
-                            <p><strong>Table magic</strong>
+                            <p><strong>Superman</strong>
                             </p>
                            
                           </div>

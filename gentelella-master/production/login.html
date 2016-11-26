@@ -23,7 +23,7 @@
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
-  <script>
+  <script type="text/javascript">
    function logIn(){
         var email = $("#emailid").val();
 		if(email == "traveller@gmail.com")
@@ -36,12 +36,17 @@
 		else{
 			alert("Wrong credentials")
 		}
-   }
-   
+	}
+
+	
+        
+        
+
+
   </script>
 
   <body class="login">
-    <div>
+        <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
@@ -56,7 +61,18 @@
               <div>
                 <input type="password" id="password" class="form-control" placeholder="Password" required="" />
               </div>
-              <div style="padding-top:100px;position:relative">
+			  <label class="control-label col-md-3 col-sm-3 col-xs-12" id="from" >From<span class="required">*</span>
+                        </label>
+						   <div>
+                <input type="text" id="from" class="form-control" placeholder="Bangalore" required="" />
+              </div>
+			  <label class="control-label col-md-3 col-sm-3 col-xs-12" id="To" >To<span class="required">*</span>
+                        </label>
+			     <div>
+                <input type="text" id="to" class="form-control" placeholder="Enter your destination" required="" />
+              </div>
+						
+              <div style="padding-top:100px;position:relative;left:46px;">
                 <a class="btn btn-default submit" id="login" onclick="logIn()">Log in</a>
               </div>
 			  <div>
@@ -87,7 +103,7 @@
               <h1>Create Account</h1>
                <label class="control-label col-md-3 col-sm-3 col-xs-12" id="dateOfBirthTag" >Date Of Birth <span class="required">*</span>
                         </label>
-		 <label class="control-label col-md-3 col-sm-3 col-xs-12" id="userType" >User Type<span class="required">*</span>
+				<label class="control-label col-md-3 col-sm-3 col-xs-12" id="userType" >User Type<span class="required">*</span>
                         </label>
               <div>
                 <input type="email" class="form-control" placeholder="Email" required="" />
@@ -102,23 +118,22 @@
                         </div>
               </div>
 			 <div>
-			  <form>
+			 <form id="myRadioForm">
 			<label id="traveller" class="radio-inline">
-			<input type="radio" name="optradio">Traveller
+			<input id= "travellerRadio" type="radio" name="optradio" value="T">Traveller
 			</label>
 			<label id ="promoter" class="radio-inline">
-				<input type="radio" name="optradio">Promoter
+				<input id= "promoterRadio" type="radio" name="optradio" value="P">Promoter
 			</label>
 			</form>
 			 </div>
 			 
-              <div  style="position:relative; top:50px; ">
+              <div  style="position:relative; top:50px;width:200px;left:64px">
                 <a  class="btn btn-default submit "  href="login.html">Submit</a>
               </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator" style="position:relative; top:120px; ">
+			  <div id ="payCards" style="position: relative;top: 84px;width: 1000px;left:-72px" ></div>
+            
+              <div class="separator" style="position:relative; top:157px; ">
                 <p class="change_link">Already a member ?
                   <a href="login.html" class="to_register"> Log in </a>
                 </p>
@@ -131,12 +146,14 @@
                   <p>©2016 All Rights Reserved.</p>
                 </div>
               </div>
+			  
+			   <div class="clearfix"></div>
+				 
             </form>
           </section>
-        </div>
+		
       </div>
     </div>
-	
 	<!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- bootstrap-daterangepicker -->
@@ -150,6 +167,12 @@
         }, function(start, end, label) {
           console.log(start.toISOString(), end.toISOString(), label);
         });
+		$("#promoterRadio").change(function(){
+	$("#payCards").append('<div class="row"><div class="col-xs-6"><p class="lead">Payment Methods:</p><img src="images/visa.png" alt="Visa"><img src="images/mastercard.png" alt="Mastercard"><img src="images/american-express.png" alt="American Express"><img src="images/paypal.png" alt="Paypal"><p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">Pay For your Premium account</p></div></div>');
+   });
+    $("#travellerRadio").change(function(){
+	$("#payCards").empty();
+	});
       });
     </script>
     <!-- /bootstrap-daterangepicker -->
